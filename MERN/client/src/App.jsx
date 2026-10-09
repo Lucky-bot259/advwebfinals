@@ -9,7 +9,7 @@ function App() {
   const [editingId, setEditingId] = useState(null);
  
   const loadStudents = () => {
-    axios.get('http://localhost:5000/students').then((response) => {
+    axios.get("http://localhost:5000/students").then((response) => {
       setStudents(response.data);
     });
   };
@@ -27,7 +27,7 @@ function App() {
  
   const addStudent = () => {
     axios
-      .post('http://localhost:5000/students', { name, course, age })
+      .post("http://localhost:5000/students", { name, course, age })
       .then(() => {
         loadStudents();
         resetForm();
@@ -35,7 +35,7 @@ function App() {
   };
  
   const deleteStudent = (id) => {
-    axios.delete('http://localhost:5000/students/${id}').then(() => {
+    axios.delete(`http://localhost:5000/students/${id}`).then(() => {
       loadStudents();
     });
   };
@@ -49,7 +49,7 @@ function App() {
  
   const updateStudent = () => {
     axios
-      .put("http://localhost:5000/students/${editingId}", { name, course, age })
+      .put(`http://localhost:5000/students/${editingId}`, { name, course, age })
       .then(() => {
         loadStudents();
         resetForm();
